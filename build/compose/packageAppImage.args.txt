@@ -1,5 +1,5 @@
 --input
-"C:\\Users\\Michael\\AppData\\Local\\Temp\\compose-package7834232020027468903"
+"C:\\Users\\Michael\\AppData\\Local\\Temp\\compose-package7246333987033370610"
 --type
 "app-image"
 --dest

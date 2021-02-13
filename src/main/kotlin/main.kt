@@ -1,22 +1,22 @@
 import androidx.compose.desktop.Window
 import androidx.compose.material.Text
-import androidx.compose.material.Button
+import java.util.logging.Level
+import java.util.logging.Logger
 
 /*
-the easiest way to reproduce this bug is:
- 1. run `gradle packageAppImage`
- 2. start app in build\compose\binaries\main\app-image\example\example.exe
- 3. attach "Debug Packaged Application" configuration in debug mode
- -> continued in onClick callback below
+    here it's all about seeing the app crash
+    1. run `gradle run` to see the app running normally
+    2. run `gradle packageAppImage` to build the packaged app
+    3. start app in build\compose\binaries\main\app-image\example\example.exe
+    4. see it crash
  */
 
-fun main() = Window {
-    Button(onClick = { // 4. set breakpoint here
-        // 5. click button in app
-        // 6. evaluate `java.util.logging.Logger("foo")
-        // works with `gradle run`
-        // fails in packaged app
-    }) {
-        Text("click me")
+val logger = Logger.getLogger("Example")
+
+fun main() {
+    logger.log(Level.ALL, "App started")
+
+    Window {
+        Text("dummy")
     }
 }
